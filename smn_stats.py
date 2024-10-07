@@ -15,7 +15,9 @@ def get_unique_locations(df):
 
 
 def select_location(all_locations):
-    return st.selectbox("Seleccione una ubicación", all_locations)
+    return st.selectbox(
+        "Seleccione una ubicación", all_locations, key="ubicacion_seleccionada"
+    )
 
 
 def get_available_years(df, selected_location):
@@ -23,7 +25,9 @@ def get_available_years(df, selected_location):
 
 
 def select_year(unique_years):
-    return st.selectbox("Seleccione un año", sorted(unique_years))
+    return st.selectbox(
+        "Seleccione un año", sorted(unique_years), key="año_seleccionado"
+    )
 
 
 def filter_data(df, selected_location, selected_year):
@@ -153,6 +157,3 @@ def info_per_year():
 
     line_graph = create_line_chart(agg_data, selected_location, selected_year)
     st.plotly_chart(line_graph)
-
-
-info_per_year()
