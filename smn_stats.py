@@ -38,7 +38,8 @@ def filter_data(df, selected_location, selected_year):
     return filtered_data
 
 
-def aggregate_monthly_data(filtered_data):
+def aggregate_monthly_data(filtered_data: pd.DataFrame):
+    filtered_data = filtered_data.copy()
     filtered_data["mes"] = filtered_data["fecha_hora"].dt.month
     agg_data = (
         filtered_data.groupby("mes")
