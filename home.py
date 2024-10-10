@@ -5,9 +5,12 @@ from smn_stats import info_per_year
 st.header("Ciencia de Datos")
 st.subheader("SMN Open Data")
 
-st.sidebar.title("Analisis")
+st.sidebar.title("Datos Climáticos")
 
-sb_menu = st.sidebar.radio("Tipo", ["Info por ubicación y año", "Temperatura"])
+datos_menu = st.sidebar.radio("Datos por...", ["Día", "Mes", "Año"])
+
+sb_menu = st.sidebar.radio("Analisis", ["Info por ubicación y año", "Temperatura"])
+
 match sb_menu:
     case "Temperatura":
         pick_day()

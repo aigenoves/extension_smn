@@ -7,7 +7,7 @@ from func.smn_data import proccess_smn_data, locations
 from func.utils import angulo_a_cardinal
 
 
-puntos_cardinales = [
+PUNTOS_CARDINALES = [
     {"punto_cardinal": "N", "viento_d": 0},
     {"punto_cardinal": "NE", "viento_d": 45},
     {"punto_cardinal": "E", "viento_d": 90},
@@ -17,7 +17,7 @@ puntos_cardinales = [
     {"punto_cardinal": "W", "viento_d": 270},
     {"punto_cardinal": "NW", "viento_d": 315},
 ]
-df_puntos_cardinales = pd.DataFrame(puntos_cardinales)
+DF_PUNTOS_CARDINALES = pd.DataFrame(PUNTOS_CARDINALES)
 
 
 def pick_day():
@@ -119,7 +119,7 @@ def graficar_rosa_vientos(datos_filtrados):
         )
 
         datos_completos = pd.merge(
-            df_puntos_cardinales, datos_viento, on="punto_cardinal", how="left"
+            DF_PUNTOS_CARDINALES, datos_viento, on="punto_cardinal", how="left"
         )
 
         fig_windrose = px.bar_polar(

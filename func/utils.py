@@ -12,8 +12,8 @@ def angulo_a_cardinal(a):
     elif 157.5 <= angulo < 202.5:
         return "S"
     elif 202.5 <= angulo < 247.5:
-        return "SW"
+        return "SO"
     elif 247.5 <= angulo < 292.5:
-        return "W"
+        return "O"
     elif 292.5 <= angulo < 337.5:
-        return "NW"
+        return "NO"
