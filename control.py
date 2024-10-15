@@ -2,7 +2,7 @@ import streamlit as st
 import pandas as pd
 import plotly.graph_objects as go
 from func.smn_data import proccess_smn_data, locations
-from func.wind_rose import windrose
+from graphs.windrose import windrose
 
 
 # Función para determinar el color de la barra de humedad

@@ -1,11 +1,11 @@
 import streamlit as st
 import pandas as pd
 import plotly.express as px
-from func.smn_data import proccess_smn_data, stations
+from func.smn_data import proccess_smn_data, process_stations_data
 
 
 data_datos = proccess_smn_data()
-data_coordenadas = stations()
+data_coordenadas = process_stations_data()
 
 
 data_datos["fecha_hora"] = pd.to_datetime(data_datos["fecha_hora"])
