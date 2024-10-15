@@ -25,10 +25,12 @@ def page(
         windrose_graph = windrose(filtered_data)
         pressure_graph = go.Figure(gauge.pressure(filtered_data=filtered_data))
         temperature_graph = go.Figure(gauge.temperature(filtered_data=filtered_data))
+        humidity_graph = go.Figure(gauge.humidity(filtered_data=filtered_data))
 
         col1, col2 = st.columns(2)
         with col1:
             st.plotly_chart(temperature_graph)
+            st.plotly_chart(humidity_graph)
 
         with col2:
             st.plotly_chart(windrose_graph)

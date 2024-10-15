@@ -2,16 +2,22 @@ import pandas as pd
 import plotly.graph_objects as go
 
 
-def _get_pressure_color(presion):
-    if presion < 1000:
+def _get_pressure_color(pressure: float) -> str:
+    if pressure < 1000:
         return "#FF8D33"
-    if presion < 1020:
+    if pressure < 1020:
         return "#A8DAB5"
     else:
         return "#007BFF"
-    wins_median = df.groupby("punto_cardinal", as_index=False).agg(
-        {"viento_v": "median"}
-    )
+
+
+def _get_humidity_color(humidity: float) -> str:
+    if humidity < 40:
+        return "#F5F5DC"
+    elif humidity < 70:
+        return "#99FF99"
+    else:
+        return "#003366"
 
 
 def pressure(filtered_data: pd.Series) -> go.Indicator:
@@ -49,6 +55,24 @@ def temperature(filtered_data: pd.Series) -> go.Indicator:
                 {"range": [15, 30], "color": "lightyellow"},
                 {"range": [30, 50], "color": "indianred"},
             ],
+        },
+    )
+    return graph
+
+
+def humidity(filtered_data: pd.Series) -> go.Indicator:
+    humidity_median = float(filtered_data["humedad"].median())
+    graph = go.Indicator(
+        mode="gauge+number",
+        number={"font": {"size": 25}, "suffix": " %"},
+        value=humidity_median,
+        title={"text": "Humedad", "font": {"size": 20}},
+        gauge={
+            "axis": {"range": [0, 100]},
+            "bar": {
+                "color": _get_humidity_color(humidity_median),
+                "thickness": 0.3,
+            },
         },
     )
     return graph
