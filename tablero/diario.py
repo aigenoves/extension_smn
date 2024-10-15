@@ -5,6 +5,7 @@ import plotly.graph_objects as go
 from func.smn_data import get_station_data
 from func import utils
 from graphs.windrose import windrose
+from graphs import gauge
 
 
 def page(
@@ -21,8 +22,14 @@ def page(
         st.warning("No se encontraron datos para los filtros seleccionados.")
 
     else:
-        rosa_vientos = windrose(filtered_data)
+        windrose_graph = windrose(filtered_data)
+        pressure_graph = go.Figure(gauge.pressure(filtered_data=filtered_data))
+        temperature_graph = go.Figure(gauge.temperature(filtered_data=filtered_data))
+
         col1, col2 = st.columns(2)
+        with col1:
+            st.plotly_chart(temperature_graph)
 
         with col2:
-            st.plotly_chart(rosa_vientos)
+            st.plotly_chart(windrose_graph)
+            st.plotly_chart(pressure_graph)
