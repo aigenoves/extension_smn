@@ -6,7 +6,8 @@ from tablero import diario
 st.set_page_config(page_title="Datos climáticos del SMN", page_icon=":mostly_sunny:")
 stations_data = smn_data.process_stations_data()
 station_choices = tuple(smn_data.stations(stations_data))
-heat_map = st.Page("mapa_calor.py", title="Mapa de Calor")
+# heat_map = st.Page("heatmap.py", title="Mapa de Calor")
+
 
 def main():
     selected_date = None
@@ -85,34 +86,33 @@ if __name__ == "__main__":
 
     main()
 
-    with st.sidebar:
-        st.markdown("---")
-        st.markdown(
-            '<h4>Hecho con:</h4>',
-            unsafe_allow_html=True,
-        )
-        st.markdown(
-            '<a href="https://pandas.pydata.org/"><img src="https://pandas.pydata.org/static/img/pandas_white.svg" alt="Pandas logo" height="18"></a>',
-            unsafe_allow_html=True,
-        )
+    # with st.sidebar:
+    #     st.markdown("---")
+    #     st.markdown(
+    #         "<h4>Hecho con:</h4>",
+    #         unsafe_allow_html=True,
+    #     )
+    #     st.markdown(
+    #         '<a href="https://pandas.pydata.org/"><img src="https://pandas.pydata.org/static/img/pandas_white.svg" alt="Pandas logo" height="18"></a>',
+    #         unsafe_allow_html=True,
+    #     )
 
-        st.markdown(
-            '<a href="https://streamlit.io/"><img src="https://streamlit.io/images/brand/streamlit-mark-color.png" alt="Streamlit logo" height="16"></a>',
-            unsafe_allow_html=True,
-        )
-        st.markdown(
-            '<a href="https://plotly.com/"><img src="https://studyopedia.com/wp-content/uploads/2023/07/Plotly-Python-Library.jpg" alt="Plotly logo" height="26"></a>',
-            unsafe_allow_html=True,
-        )
-        st.markdown(
-            '<a href="https://python.org/"><img src="https://s3.dualstack.us-east-2.amazonaws.com/pythondotorg-assets/media/files/python-logo-only.svg" alt="Python logo" height="32"></a>',
-            unsafe_allow_html=True,
-        )
+    #     st.markdown(
+    #         '<a href="https://streamlit.io/"><img src="https://streamlit.io/images/brand/streamlit-mark-color.png" alt="Streamlit logo" height="16"></a>',
+    #         unsafe_allow_html=True,
+    #     )
+    #     st.markdown(
+    #         '<a href="https://plotly.com/"><img src="https://studyopedia.com/wp-content/uploads/2023/07/Plotly-Python-Library.jpg" alt="Plotly logo" height="26"></a>',
+    #         unsafe_allow_html=True,
+    #     )
+    #     st.markdown(
+    #         '<a href="https://python.org/"><img src="https://s3.dualstack.us-east-2.amazonaws.com/pythondotorg-assets/media/files/python-logo-only.svg" alt="Python logo" height="32"></a>',
+    #         unsafe_allow_html=True,
+    #     )
 
+    #     st.markdown(
+    #         '<h6>Proyecto de Extensón &nbsp<img src="https://www.info.unlp.edu.ar/wp-content/uploads/2019/07/logoo-300x300.jpg" alt="UNLP logo" height="22"></h6>',
+    #         unsafe_allow_html=True,
+    #     )
 
-        st.markdown(
-            '<h6>Proyecto de Extensón &nbsp<img src="https://www.info.unlp.edu.ar/wp-content/uploads/2019/07/logoo-300x300.jpg" alt="UNLP logo" height="22"></h6>',
-            unsafe_allow_html=True,
-        )
-
-#&nbsp por <a href="https://github.com/aigenoves">aigenoves</a>
+# &nbsp por <a href="https://github.com/aigenoves">aigenoves</a>
